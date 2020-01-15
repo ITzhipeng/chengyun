@@ -50,24 +50,7 @@
         and latitude &gt;=#{latMin}
     </select>
 
-    <select id="getEmergencyteam" resultType="com.chengyun.chengyun.domain.Shyjjy">
-      select
-        id,
-		name,
-		address,
-        longitude,
-        latitude,
-        phone,
-        organization
-        from cy_shyjjy_data
-        where
-        longitude &lt;= #{lonMax}
-        and longitude &gt;= #{lonMin}
-        and latitude &lt; #{latMax}
-        and latitude &gt;=#{latMin} order by rksj
-    </select>
-
-    <select id="getRescueteam" resultType="com.chengyun.chengyun.domain.Hgjy">
+    <select id="getPolicestation" resultType="com.chengyun.chengyun.domain.Pcs">
       select
         id,
 		name,
@@ -75,28 +58,13 @@
         longitude,
         latitude,
         phone
-        from cy_hgjy_data
+        from cy_pcs_data
         where
         longitude &lt;= #{lonMax}
         and longitude &gt;= #{lonMin}
         and latitude &lt; #{latMax}
-        and latitude &gt;=#{latMin} order by rksj
+        and latitude &gt;=#{latMin}
     </select>
 
-    <select id="getHospital" resultType="com.chengyun.chengyun.domain.Hospital">
-      select
-        id,
-		name,
-		address,
-        longitude,
-        latitude,
-        phone,
-        level
-        from cy_yy_data
-        where
-        longitude &lt;= #{lonMax}
-        and longitude &gt;= #{lonMin}
-        and latitude &lt; #{latMax}
-        and latitude &gt;=#{latMin} order by rksj
-    </select>
+
 </mapper>

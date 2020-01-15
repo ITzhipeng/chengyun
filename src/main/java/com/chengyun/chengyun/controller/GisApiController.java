@@ -1,7 +1,9 @@
 package com.chengyun.chengyun.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.chengyun.chengyun.domain.Cldwjgj;
 import com.chengyun.chengyun.domain.Jqjc;
+import com.chengyun.chengyun.domain.Pcs;
 import com.chengyun.chengyun.service.GisApiService;
 import com.chengyun.chengyun.until.LatLonUtil;
 import com.chengyun.chengyun.vo.ResultVo;
@@ -47,12 +49,23 @@ public class GisApiController {
         }
     }
 
-    @PostMapping("emergencyteam")
-    public ResultVo<List<Jqjc>> getEmergencyteam(@RequestParam(defaultValue = "") String longitude,
-                                                 @RequestParam(defaultValue = "") String latitude,
-                                                 @RequestParam(defaultValue = "") String radius) throws SQLException {
 
-        if (longitude == null || longitude.equals("")) {
+    /**
+     * 车辆定位及轨迹信息
+     * @param longitude
+     * @param latitude
+     * @param radius
+     * @return
+     * @throws SQLException
+     */
+    @PostMapping("vehicle/coordinates")
+    public ResultVo<List<Cldwjgj>> getVehicleCoordinates(@RequestParam(defaultValue = "") String type,
+                                                         @RequestParam(defaultValue = "") String longitude,
+                                                         @RequestParam(defaultValue = "") String latitude,
+                                                         @RequestParam(defaultValue = "") String radius) throws SQLException {
+        if (type == null || type.equals("")) {
+            return ResultVo.getFailed("参数type不可为空");
+        }else if(longitude == null || longitude.equals("")) {
             return ResultVo.getFailed("参数longitude不可为空");
         } else if (latitude == null || latitude.equals("")) {
             return ResultVo.getFailed("参数latitude不可为空");
@@ -64,13 +77,21 @@ public class GisApiController {
             double lon = Double.valueOf(longitude);
             HashMap<String, String> map = LatLonUtil.GetAround(lat, lon, r);
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("list", gisApiService.getEmergencyteam(map.get("maxLng"), map.get("minLng"), map.get("maxLat"), map.get("minLat")));
+            jsonObject.put("list", gisApiService.getVehicleCoordinates(type,map.get("maxLng"), map.get("minLng"), map.get("maxLat"), map.get("minLat")));
             return ResultVo.getSuccess("数据获取成功", jsonObject);
         }
     }
 
-    @PostMapping("rescueteam")
-    public ResultVo<List<Jqjc>> getRescueteam(@RequestParam(defaultValue = "") String longitude,
+    /**
+     * 消防队
+     * @param longitude
+     * @param latitude
+     * @param radius
+     * @return
+     * @throws SQLException
+     */
+    @PostMapping("firestation")
+    public ResultVo<List<Jqjc>> getFirestation(@RequestParam(defaultValue = "") String longitude,
                                                  @RequestParam(defaultValue = "") String latitude,
                                                  @RequestParam(defaultValue = "") String radius) throws SQLException {
 
@@ -86,15 +107,23 @@ public class GisApiController {
             double lon = Double.valueOf(longitude);
             HashMap<String, String> map = LatLonUtil.GetAround(lat, lon, r);
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("list", gisApiService.getRescueteam(map.get("maxLng"), map.get("minLng"), map.get("maxLat"), map.get("minLat")));
+            jsonObject.put("list", gisApiService.getFirestation(map.get("maxLng"), map.get("minLng"), map.get("maxLat"), map.get("minLat")));
             return ResultVo.getSuccess("数据获取成功", jsonObject);
         }
     }
 
-    @PostMapping("hospital")
-    public ResultVo<List<Jqjc>> getHospital(@RequestParam(defaultValue = "") String longitude,
-                                                 @RequestParam(defaultValue = "") String latitude,
-                                                 @RequestParam(defaultValue = "") String radius) throws SQLException {
+    /**
+     * 派出所
+     * @param longitude
+     * @param latitude
+     * @param radius
+     * @return
+     * @throws SQLException
+     */
+    @PostMapping("policestation")
+    public ResultVo<List<Pcs>> getPolicestation(@RequestParam(defaultValue = "") String longitude,
+                                                @RequestParam(defaultValue = "") String latitude,
+                                                @RequestParam(defaultValue = "") String radius) throws SQLException {
 
         if (longitude == null || longitude.equals("")) {
             return ResultVo.getFailed("参数longitude不可为空");
@@ -108,7 +137,7 @@ public class GisApiController {
             double lon = Double.valueOf(longitude);
             HashMap<String, String> map = LatLonUtil.GetAround(lat, lon, r);
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("list", gisApiService.getHospital(map.get("maxLng"), map.get("minLng"), map.get("maxLat"), map.get("minLat")));
+            jsonObject.put("list", gisApiService.getPolicestation(map.get("maxLng"), map.get("minLng"), map.get("maxLat"), map.get("minLat")));
             return ResultVo.getSuccess("数据获取成功", jsonObject);
         }
     }
