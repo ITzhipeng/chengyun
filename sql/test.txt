@@ -1,0 +1,6 @@
+id
+platenumber
+longitude
+latitude
+time
+rksj

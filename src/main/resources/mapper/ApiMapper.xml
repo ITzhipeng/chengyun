@@ -14,23 +14,23 @@
                 ,ratedTonnage
                 ,ownedName
                 ,businessScope
-                ,businessLicense,rksj
+                ,businessLicense
         from cy_whcljb_data order by rksj
     </select>
     <select id="getEnterprise" resultType="com.chengyun.chengyun.domain.QyJcxx">
         select
-id,
-entName,
-entCatogory,
-entCode,
-licenseNumber,
-expDate,
-registerAddress,
-productionSite,
-legalRepresentative,
-district,
-street,
-businessScope
+              id,
+              entName,
+              entCatogory,
+              entCode,
+              licenseNumber,
+              expDate,
+              registerAddress,
+              productionSite,
+              legalRepresentative,
+              district,
+              street,
+              businessScope
    from cy_qyjc_data order by rksj;
     </select>
 

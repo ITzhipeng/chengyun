@@ -12,13 +12,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.SQLException;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 @RestController
 public class ApiController {
     @Autowired
     private ApiService apiService;
+
+    /**
+     * 危化车辆基本信息接口
+     * @return
+     * @throws SQLException
+     */
     @PostMapping("vehicle/basicinfo")
     public ResultVo<List<WhclJbxx>> getVehicle() throws SQLException {
         JSONObject jsonObject = new JSONObject();
@@ -26,6 +31,11 @@ public class ApiController {
         return ResultVo.getSuccess("数据获取成功",jsonObject);
     }
 
+    /**
+     * 企业基本信息接口
+     * @return
+     * @throws SQLException
+     */
 
     @PostMapping("enterprise/basicinfo")
     public ResultVo<List<QyJcxx>> getEnterprise() throws SQLException {
@@ -34,12 +44,16 @@ public class ApiController {
         return ResultVo.getSuccess("数据获取成功",jsonObject);
     }
 
+    /**
+     * 危化品企业预案接口
+     * @return
+     * @throws SQLException
+     */
     @PostMapping("enterprise/plan")
     public ResultVo<List<Whpqyya>> getEnterprisePlan() throws SQLException {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("list",apiService.getEnterprisePlan());
         return ResultVo.getSuccess("数据获取成功",jsonObject);
     }
-
 
 }

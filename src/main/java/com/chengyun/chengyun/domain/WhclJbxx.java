@@ -4,6 +4,7 @@ package com.chengyun.chengyun.domain;
  * @author Administrator
  * @date 2020/1/15 12:05
  */
+
 public class WhclJbxx {
     private String id;//id	车辆唯一标识
     private String plateNumber;//plateNumber	车牌号
@@ -17,7 +18,6 @@ public class WhclJbxx {
     private String ownedName;//ownedName	业户名
     private String businessScope;//businessScope	经营范围
     private String businessLicense;//businessLicense	企业经营许可证
-    private String rksj;
 
     public String getId() {
         return id;
@@ -115,11 +115,5 @@ public class WhclJbxx {
         this.businessLicense = businessLicense;
     }
 
-    public String getRksj() {
-        return rksj;
-    }
 
-    public void setRksj(String rksj) {
-        this.rksj = rksj;
-    }
 }
