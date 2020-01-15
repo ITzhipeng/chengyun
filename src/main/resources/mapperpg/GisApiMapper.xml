@@ -99,4 +99,20 @@
         and latitude &lt; #{latMax}
         and latitude &gt;=#{latMin} order by rksj
     </select>
+
+    <select id="getPolicestation" resultType="com.chengyun.chengyun.domain.Pcs">
+      select
+        id,
+		name,
+		address,
+        longitude,
+        latitude,
+        phone
+        from cy_pcs_data
+        where
+        longitude &lt;= #{lonMax}
+        and longitude &gt;= #{lonMin}
+        and latitude &lt; #{latMax}
+        and latitude &gt;=#{latMin}
+    </select>
 </mapper>

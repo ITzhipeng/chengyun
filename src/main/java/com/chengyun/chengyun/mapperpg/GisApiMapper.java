@@ -45,4 +45,10 @@ public interface GisApiMapper {
                                @Param("latMin") String latMin)throws SQLException;
 
 
+
+    List<Pcs> getPolicestation(
+            @Param("lonMax") String lonMax,
+            @Param("lonMin") String lonMin,
+            @Param("latMax") String latMax,
+            @Param("latMin") String latMin) throws SQLException;
 }
