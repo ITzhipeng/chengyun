@@ -17,7 +17,7 @@ public interface ApiService {
     //企业基本信息
     List<QyJcxx> getEnterprise()throws SQLException;
 
-    //企业基本信息
+    //危化品企业预案信息
     List<Whpqyya> getEnterprisePlan()throws SQLException;
 
 }
