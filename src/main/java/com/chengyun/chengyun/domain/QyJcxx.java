@@ -134,13 +134,6 @@ public class QyJcxx {
         this.businessScope = businessScope;
     }
 
-    public String getRksj() {
-        return rksj;
-    }
-
-    public void setRksj(String rksj) {
-        this.rksj = rksj;
-    }
 
     @Override
     public String toString() {

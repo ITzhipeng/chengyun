@@ -12,11 +12,43 @@
         latitude,
         detail
         from cy_jqjc_data
-        <where>
-        <if test="lonMax!=null and lonMax!=''" >
-            longitude &lt;= #{lonMax} and longitude &gt;= #{lonMin}
-            and latitude &lt; #{latMax} and latitude &gt;=#{latMin}
-        </if>
-        </where>
+        where
+        longitude &lt;= #{lonMax}
+        and longitude &gt;= #{lonMin}
+        and latitude &lt; #{latMax}
+        and latitude &gt;=#{latMin}
     </select>
+
+    <select id="getVehicleCoordinates" resultType="com.chengyun.chengyun.domain.Cldwjgj">
+       select
+        id,
+        longitude,
+        latitude,
+        time
+        from cy_cldwjgj_data
+        where
+				type=#{type}
+        longitude &lt;= #{lonMax}
+        and longitude &gt;= #{lonMin}
+        and latitude &lt; #{latMax}
+        and latitude &gt;=#{latMin}
+    </select>
+
+    <select id="getFirestation" resultType="com.chengyun.chengyun.domain.Xfd">
+      select
+        id,
+		name,
+		address,
+        longitude,
+        latitude,
+        phone
+        from cy_xfll_data
+        where
+        longitude &lt;= #{lonMax}
+        and longitude &gt;= #{lonMin}
+        and latitude &lt; #{latMax}
+        and latitude &gt;=#{latMin}
+    </select>
+
+
 </mapper>

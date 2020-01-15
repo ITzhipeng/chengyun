@@ -1,7 +1,7 @@
 package com.chengyun.chengyun.domain;
 
 /**
- * 危化品企源
+ * 危化品企业预案信息
  * @author Administrator
  * @date 2020/1/15 12:05
  */
@@ -85,13 +85,6 @@ public class Whpqyya {
         this.phone = phone;
     }
 
-    public String getRksj() {
-        return rksj;
-    }
-
-    public void setRksj(String rksj) {
-        this.rksj = rksj;
-    }
 
     @Override
     public String toString() {

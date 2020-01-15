@@ -74,13 +74,6 @@ public class Jqjc {
         this.detail = detail;
     }
 
-    public String getRksj() {
-        return rksj;
-    }
-
-    public void setRksj(String rksj) {
-        this.rksj = rksj;
-    }
 
     @Override
     public String toString() {
