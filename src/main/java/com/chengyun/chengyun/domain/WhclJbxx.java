@@ -1,5 +1,9 @@
 package com.chengyun.chengyun.domain;
-
+/**
+ * 危化车辆基本信息
+ * @author Administrator
+ * @date 2020/1/15 12:05
+ */
 public class WhclJbxx {
     private String id;//id	车辆唯一标识
     private String plateNumber;//plateNumber	车牌号

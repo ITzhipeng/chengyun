@@ -1,7 +1,9 @@
 package com.chengyun.chengyun.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.chengyun.chengyun.domain.QyJcxx;
 import com.chengyun.chengyun.domain.WhclJbxx;
+import com.chengyun.chengyun.domain.Whpqyya;
 import com.chengyun.chengyun.service.ApiService;
 import com.chengyun.chengyun.vo.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,12 +28,16 @@ public class ApiController {
 
 
     @RequestMapping("enterprise/basicinfo")
-    public ResultVo<LinkedHashMap<String,Object>> getEnterprise() throws SQLException {
-        List<LinkedHashMap<String,String>> list=null;
-        LinkedHashMap<String,Object> resultMap=new LinkedHashMap<>();
-        LinkedHashMap<String,Object> map=new LinkedHashMap<>();
+    public ResultVo<List<QyJcxx>> getEnterprise() throws SQLException {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("list",apiService.getEnterprise());
+        return ResultVo.getSuccess("数据获取成功",jsonObject);
+    }
+
+    @RequestMapping("enterprise/plan")
+    public ResultVo<List<Whpqyya>> getEnterprisePlan() throws SQLException {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("list",apiService.getEnterprisePlan());
         return ResultVo.getSuccess("数据获取成功",jsonObject);
     }
 

@@ -17,7 +17,7 @@
                 ,businessLicense,rksj
         from cy_whcljb_data order by rksj
     </select>
-    <select id="getEnterprise" resultType="java.util.LinkedHashMap">
+    <select id="getEnterprise" resultType="com.chengyun.chengyun.domain.QyJcxx">
         select
 id,
 entName,
@@ -31,8 +31,21 @@ legalRepresentative,
 district,
 street,
 businessScope
-   from cy_qyjc_data;
+   from cy_qyjc_data order by rksj;
     </select>
+
+    <select id="getEnterprisePlan" resultType="com.chengyun.chengyun.domain.Whpqyya">
+       SELECT
+id,
+entName,
+planSummary,
+planDetail,
+planCategory,
+contact,
+phone
+FROM cy_whpqyya_data order by rksj;
+    </select>
+
 
 
 </mapper>

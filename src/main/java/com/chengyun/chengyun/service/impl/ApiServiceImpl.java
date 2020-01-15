@@ -1,6 +1,8 @@
 package com.chengyun.chengyun.service.impl;
 
+import com.chengyun.chengyun.domain.QyJcxx;
 import com.chengyun.chengyun.domain.WhclJbxx;
+import com.chengyun.chengyun.domain.Whpqyya;
 import com.chengyun.chengyun.mapper.ApiMapper;
 import com.chengyun.chengyun.service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +22,12 @@ public class ApiServiceImpl implements ApiService {
     }
 
     @Override
-    public List<LinkedHashMap<String, String>> getEnterprise() throws SQLException {
+    public List<QyJcxx> getEnterprise() throws SQLException {
         return apiMapper.getEnterprise();
+    }
+
+    @Override
+    public List<Whpqyya> getEnterprisePlan() throws SQLException {
+        return apiMapper.getEnterprisePlan();
     }
 }
