@@ -6,7 +6,6 @@ import com.chengyun.chengyun.domain.Whpqyya;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.sql.SQLException;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 @Mapper
