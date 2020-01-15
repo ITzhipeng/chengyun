@@ -1,9 +1,6 @@
 package com.chengyun.chengyun.mapperpg;
 
-import com.chengyun.chengyun.domain.Cldwjgj;
-import com.chengyun.chengyun.domain.Jqjc;
-import com.chengyun.chengyun.domain.Whpqyya;
-import com.chengyun.chengyun.domain.Xfd;
+import com.chengyun.chengyun.domain.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -24,6 +21,12 @@ public interface GisApiMapper {
                                         @Param("latMin") String latMin) throws SQLException;
 
     List<Xfd> getFirestation(
+            @Param("lonMax") String lonMax,
+            @Param("lonMin") String lonMin,
+            @Param("latMax") String latMax,
+            @Param("latMin") String latMin) throws SQLException;
+
+    List<Pcs> getPolicestation(
             @Param("lonMax") String lonMax,
             @Param("lonMin") String lonMin,
             @Param("latMax") String latMax,
