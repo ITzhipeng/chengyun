@@ -3,4 +3,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.chengyun.chengyun.mapperpg.GisApiMapper">
 
+    <select id="getPublicOpinion" resultType="com.chengyun.chengyun.domain.Jqjc">
+        select
+        id,
+        time,
+        address,
+        longitude,
+        latitude,
+        detail
+        from cy_jqjc_data
+        <where>
+        <if test="lonMax!=null and lonMax!=''" >
+            longitude &lt;= #{lonMax} and longitude &gt;= #{lonMin}
+            and latitude &lt; #{latMax} and latitude &gt;=#{latMin}
+        </if>
+        </where>
+    </select>
 </mapper>

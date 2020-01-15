@@ -27,14 +27,14 @@ public class ApiController {
     }
 
 
-    @RequestMapping("enterprise/basicinfo")
+    @PostMapping("enterprise/basicinfo")
     public ResultVo<List<QyJcxx>> getEnterprise() throws SQLException {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("list",apiService.getEnterprise());
         return ResultVo.getSuccess("数据获取成功",jsonObject);
     }
 
-    @RequestMapping("enterprise/plan")
+    @PostMapping("enterprise/plan")
     public ResultVo<List<Whpqyya>> getEnterprisePlan() throws SQLException {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("list",apiService.getEnterprisePlan());

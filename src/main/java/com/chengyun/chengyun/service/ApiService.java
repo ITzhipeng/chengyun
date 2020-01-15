@@ -1,10 +1,12 @@
 package com.chengyun.chengyun.service;
 
+
 import com.chengyun.chengyun.domain.QyJcxx;
 import com.chengyun.chengyun.domain.WhclJbxx;
 import com.chengyun.chengyun.domain.Whpqyya;
 
 import java.sql.SQLException;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public interface ApiService {
@@ -13,10 +15,9 @@ public interface ApiService {
     List<WhclJbxx> getVehicle() throws SQLException;
 
     //企业基本信息
-    List<QyJcxx> getEnterprise() throws SQLException;
+    List<QyJcxx> getEnterprise()throws SQLException;
 
     //企业基本信息
-    List<Whpqyya> getEnterprisePlan() throws SQLException;
-
+    List<Whpqyya> getEnterprisePlan()throws SQLException;
 
 }
