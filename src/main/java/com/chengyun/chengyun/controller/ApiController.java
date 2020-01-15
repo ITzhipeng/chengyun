@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.SQLException;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 @RestController
@@ -22,4 +23,17 @@ public class ApiController {
         jsonObject.put("list",apiService.getVehicle());
         return ResultVo.getSuccess("数据获取成功",jsonObject);
     }
+
+
+    @RequestMapping("enterprise/basicinfo")
+    public ResultVo<LinkedHashMap<String,Object>> getEnterprise() throws SQLException {
+        List<LinkedHashMap<String,String>> list=null;
+        LinkedHashMap<String,Object> resultMap=new LinkedHashMap<>();
+        LinkedHashMap<String,Object> map=new LinkedHashMap<>();
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("list",apiService.getEnterprise());
+        return ResultVo.getSuccess("数据获取成功",jsonObject);
+    }
+
+
 }

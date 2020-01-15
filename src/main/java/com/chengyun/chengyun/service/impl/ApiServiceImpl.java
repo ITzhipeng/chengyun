@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 @Service
@@ -16,5 +17,10 @@ public class ApiServiceImpl implements ApiService {
     @Override
     public List<WhclJbxx> getVehicle() throws SQLException {
         return apiMapper.getVehicle();
+    }
+
+    @Override
+    public List<LinkedHashMap<String, String>> getEnterprise() throws SQLException {
+        return apiMapper.getEnterprise();
     }
 }

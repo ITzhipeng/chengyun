@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.chengyun.chengyun.mapper.ApiMapper">
-    <select id="getVehicle"  resultType="com.chengyun.chengyun.domain.WhclJbxx">
+    <select id="getVehicle" resultType="com.chengyun.chengyun.domain.WhclJbxx">
         select id
                 ,plateNumber
                 ,cargoType
@@ -17,4 +17,22 @@
                 ,businessLicense,rksj
         from cy_whcljb_data order by rksj
     </select>
+    <select id="getEnterprise" resultType="java.util.LinkedHashMap">
+        select
+id,
+entName,
+entCatogory,
+entCode,
+licenseNumber,
+expDate,
+registerAddress,
+productionSite,
+legalRepresentative,
+district,
+street,
+businessScope
+   from cy_qyjc_data;
+    </select>
+
+
 </mapper>
