@@ -50,4 +50,9 @@ public class GisApiServiceImpl implements GisApiService {
     public List<Pcs> getPolicestation(String lonMax, String lonMin, String latMax, String latMin) throws SQLException {
         return gisApiMapper.getPolicestation(lonMax,lonMin,latMax,latMin);
     }
+
+    @Override
+    public List<Forcast> getAtmosphere(Double longitude, Double latitude) throws SQLException {
+        return gisApiMapper.getAtmosphere(longitude,latitude);
+    }
 }

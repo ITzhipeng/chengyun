@@ -115,4 +115,21 @@
         and latitude &lt; #{latMax}
         and latitude &gt;=#{latMin}
     </select>
+
+    <select id="getAtmosphere" parameterType="java.lang.Double" resultType="com.chengyun.chengyun.domain.Forcast">
+        SELECT distinct cpms,ybqsdnyrs,zzs,yjjb,yjzt,yjxhnr,hbgd,sxgs,ybcpgs,ybsk,wd,xdsd,fx,fs,jsl,zyl,jsxt,tqxx,njd,rksj,dt from
+(select round(min(CAST(ST_Distance(
+	ST_SetSRID(ST_MakePoint(#{longitude},#{latitude}),4326)::geography,
+	ST_SetSRID(ST_MakePoint(CAST(yjzt as double precision),CAST(yjxhnr as double precision)),4326)::geography) as NUMERIC)),3)
+as distance
+ from ods_cy_qxj_fwzx_grid_di)t1
+LEFT JOIN
+(select cpms,ybqsdnyrs,zzs,yjjb,yjzt,yjxhnr,hbgd,sxgs,ybcpgs,ybsk,wd,xdsd,fx,fs,jsl,zyl,jsxt,tqxx,njd,rksj,dt,
+round(CAST(ST_Distance(
+	ST_SetSRID(ST_MakePoint(#{longitude},#{latitude}),4326)::geography,
+	ST_SetSRID(ST_MakePoint(CAST(yjzt as double precision),CAST(yjxhnr as double precision)),4326)::geography) as NUMERIC),3)
+as distance
+ from ods_cy_qxj_fwzx_grid_di)t2
+on t1.distance = t2.distance order by rksj
+    </select>
 </mapper>

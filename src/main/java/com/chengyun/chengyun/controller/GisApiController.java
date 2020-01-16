@@ -230,5 +230,25 @@ public class GisApiController {
         }
     }
 
+    /**
+     * 未来24小时天气状况接口
+     * @param longitude
+     * @param latitude
+     * @return
+     * @throws SQLException
+     */
+    @PostMapping("atmosphere/24hourforcast")
+    public ResultVo<List<Pcs>> getAtmosphere(@RequestParam(defaultValue = "") Double longitude,
+                                                @RequestParam(defaultValue = "") Double latitude) throws SQLException {
 
+        if (longitude == null || longitude.equals("")) {
+            return ResultVo.getFailed("参数longitude不可为空");
+        } else if (latitude == null || latitude.equals("")) {
+            return ResultVo.getFailed("参数latitude不可为空");
+        }else {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("list", gisApiService.getAtmosphere(longitude,latitude));
+            return ResultVo.getSuccess("数据获取成功", jsonObject);
+        }
+    }
 }
