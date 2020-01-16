@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
-
+@CrossOrigin
 @RestController
 public class GisApiController {
     @Autowired
