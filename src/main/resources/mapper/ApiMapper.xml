@@ -46,6 +46,59 @@ phone
 FROM cy_whpqyya_data order by rksj;
     </select>
 
+    <select id="getInternetnews" resultType="com.chengyun.chengyun.domain.Wlyqrd">
+       select
+   id_yq,
+   jhpt_update_time,
+   rank_yq,
+   title_yq,
+   time_yq,
+   heat_yq,
+   vol_24h_yq
+from ods_dh_wxb_wlyqrd_di;
+    </select>
+
+    <select id="getAtmosphereAQI" resultType="com.chengyun.chengyun.domain.Kqzlzs">
+       SELECT
+aqivalue,
+groupid,
+aqiitemid,
+grade,
+jhpt_update_time,
+aqiitemname,
+aqi,
+lst_aqi,
+lst,
+groupname,
+quality
+FROM `ods_dh_sthjj_tb_kqzlzsaqi_di`;
+    </select>
+
+    <select id="getAtmosphereTedDaysforcast" resultType="com.chengyun.chengyun.domain.Qxstyb">
+       SELECT
+ybrq,
+bttqqk,
+ywtqqk,
+zdqw,
+zgqw,
+fx,
+fl,
+jsgl
+FROM `ods_cy_qxj_smc_yubao10_di`;
+    </select>
+
+    <select id="getAtmosphereWarning" resultType="com.chengyun.chengyun.domain.Qxyj">
+      SELECT
+qm,
+fbsj,
+yjlx,
+yjjb,
+yjzt,
+yjxhnr
+FROM `ods_cy_qxj_fwzx_yjxh_di`;
+    </select>
+
+
 
 
 </mapper>

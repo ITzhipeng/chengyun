@@ -9,17 +9,20 @@ import java.util.List;
 
 @Mapper
 public interface GisApiMapper {
+    //警情监测
     List<Jqjc> getPublicOpinion(@Param("lonMax") String lonMax,
                                 @Param("lonMin") String lonMin,
                                 @Param("latMax") String latMax,
                                 @Param("latMin") String latMin) throws SQLException;
 
+    //车辆定位及轨迹
     List<Cldwjgj> getVehicleCoordinates(@Param("type") String type,
                                         @Param("lonMax") String lonMax,
                                         @Param("lonMin") String lonMin,
                                         @Param("latMax") String latMax,
                                         @Param("latMin") String latMin) throws SQLException;
 
+    //消防队
     List<Xfd> getFirestation(
             @Param("lonMax") String lonMax,
             @Param("lonMin") String lonMin,
@@ -45,10 +48,12 @@ public interface GisApiMapper {
                                @Param("latMin") String latMin)throws SQLException;
 
 
-
+    //派出所接口
     List<Pcs> getPolicestation(
             @Param("lonMax") String lonMax,
             @Param("lonMin") String lonMin,
             @Param("latMax") String latMax,
             @Param("latMin") String latMin) throws SQLException;
+
+
 }

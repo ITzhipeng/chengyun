@@ -27,8 +27,8 @@
         time
         from cy_cldwjgj_data
         where
-				type=#{type}
-        longitude &lt;= #{lonMax}
+		type=#{type}
+        and longitude &lt;= #{lonMax}
         and longitude &gt;= #{lonMin}
         and latitude &lt; #{latMax}
         and latitude &gt;=#{latMin}

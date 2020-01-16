@@ -11,6 +11,7 @@ public class Cldwjgj {
     private String latitude;//纬度
     private String time;//时间
 
+
     public String getId() {
         return id;
     }

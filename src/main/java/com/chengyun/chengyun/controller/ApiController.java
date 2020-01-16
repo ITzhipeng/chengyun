@@ -1,9 +1,7 @@
 package com.chengyun.chengyun.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.chengyun.chengyun.domain.QyJcxx;
-import com.chengyun.chengyun.domain.WhclJbxx;
-import com.chengyun.chengyun.domain.Whpqyya;
+import com.chengyun.chengyun.domain.*;
 import com.chengyun.chengyun.service.ApiService;
 import com.chengyun.chengyun.vo.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +52,55 @@ public class ApiController {
     public ResultVo<List<Whpqyya>> getEnterprisePlan() throws SQLException {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("list",apiService.getEnterprisePlan());
+        return ResultVo.getSuccess("数据获取成功",jsonObject);
+    }
+
+
+    /**
+     * 网络舆情热点
+     * @return
+     * @throws SQLException
+     */
+    @PostMapping("internetnews")
+    public ResultVo<List<Wlyqrd>> getInternetnews() throws SQLException {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("list",apiService.getInternetnews());
+        return ResultVo.getSuccess("数据获取成功",jsonObject);
+    }
+
+    /**
+     * 空气质量指数
+     * @return
+     * @throws SQLException
+     */
+    @PostMapping("atmosphere/AQI")
+    public ResultVo<List<Kqzlzs>> getAtmosphereAQI() throws SQLException {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("list",apiService.getAtmosphereAQI());
+        return ResultVo.getSuccess("数据获取成功",jsonObject);
+    }
+
+    /**
+     * 气象十天预报
+     * @return
+     * @throws SQLException
+     */
+    @PostMapping("atmosphere/10dayforcast")
+    public ResultVo<List<Kqzlzs>> getAtmosphereTedDaysforcast() throws SQLException {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("list",apiService.getAtmosphereTedDaysforcast());
+        return ResultVo.getSuccess("数据获取成功",jsonObject);
+    }
+
+    /**
+     * 气象预警
+     * @return
+     * @throws SQLException
+     */
+    @PostMapping("atmosphere/warning")
+    public ResultVo<List<Kqzlzs>> getAtmosphereWarning() throws SQLException {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("list",apiService.getAtmosphereWarning());
         return ResultVo.getSuccess("数据获取成功",jsonObject);
     }
 
