@@ -52,7 +52,7 @@ public class GisApiServiceImpl implements GisApiService {
     }
 
     @Override
-    public List<Forcast> getAtmosphere(Double longitude, Double latitude) throws SQLException {
-        return gisApiMapper.getAtmosphere(longitude,latitude);
+    public List<Zdwxysj> getHazardousource(String lonMax, String lonMin, String latMax, String latMin) throws SQLException {
+        return gisApiMapper.getHazardousource(lonMax,lonMin,latMax,latMin);
     }
 }

@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.chengyun.chengyun.domain.Cldwjgj;
 import com.chengyun.chengyun.domain.Jqjc;
 import com.chengyun.chengyun.domain.Pcs;
+import com.chengyun.chengyun.domain.Zdwxysj;
 import com.chengyun.chengyun.service.GisApiService;
 import com.chengyun.chengyun.until.LatLonUtil;
 import com.chengyun.chengyun.vo.ResultVo;
@@ -230,25 +231,35 @@ public class GisApiController {
         }
     }
 
+
     /**
-     * 未来24小时天气状况接口
+     * 重大危险源数据
      * @param longitude
      * @param latitude
+     * @param radius
      * @return
      * @throws SQLException
      */
-    @PostMapping("atmosphere/24hourforcast")
-    public ResultVo<List<Pcs>> getAtmosphere(@RequestParam(defaultValue = "") Double longitude,
-                                                @RequestParam(defaultValue = "") Double latitude) throws SQLException {
+    @PostMapping("hazardousource")
+    public ResultVo<List<Zdwxysj>> getHazardousource(@RequestParam(defaultValue = "") String longitude,
+                                                     @RequestParam(defaultValue = "") String latitude,
+                                                     @RequestParam(defaultValue = "") String radius) throws SQLException {
 
         if (longitude == null || longitude.equals("")) {
             return ResultVo.getFailed("参数longitude不可为空");
         } else if (latitude == null || latitude.equals("")) {
             return ResultVo.getFailed("参数latitude不可为空");
-        }else {
+        } else if (radius == null || radius.equals("")) {
+            return ResultVo.getFailed("参数radius不可为空");
+        } else {
+            double r = Double.valueOf(radius);
+            double lat = Double.valueOf(latitude);
+            double lon = Double.valueOf(longitude);
+            HashMap<String, String> map = LatLonUtil.GetAround(lat, lon, r);
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("list", gisApiService.getAtmosphere(longitude,latitude));
+            jsonObject.put("list", gisApiService.getHazardousource(map.get("maxLng"), map.get("minLng"), map.get("maxLat"), map.get("minLat")));
             return ResultVo.getSuccess("数据获取成功", jsonObject);
         }
     }
+
 }

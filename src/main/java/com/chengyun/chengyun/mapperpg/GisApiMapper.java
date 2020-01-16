@@ -55,6 +55,11 @@ public interface GisApiMapper {
             @Param("latMax") String latMax,
             @Param("latMin") String latMin) throws SQLException;
 
-    //未来24小时天气状况
-    List<Forcast> getAtmosphere(@Param("longitude") Double longitude,@Param("latitude") Double latitude) throws SQLException;
+
+    //重大危险源数据
+    List<Zdwxysj> getHazardousource(
+            @Param("lonMax") String lonMax,
+            @Param("lonMin") String lonMin,
+            @Param("latMax") String latMax,
+            @Param("latMin") String latMin) throws SQLException;
 }

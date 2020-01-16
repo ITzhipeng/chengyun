@@ -28,6 +28,7 @@ public interface GisApiService {
     //派出所
     List<Pcs> getPolicestation(String lonMax,String lonMin,String latMax,String latMin) throws SQLException;
 
-    //未来24小时天气状况
-    List<Forcast> getAtmosphere(Double longitude,Double latitude) throws SQLException;
+    //重大危险源
+    List<Zdwxysj> getHazardousource(String lonMax,String lonMin,String latMax,String latMin) throws SQLException;
+
 }
