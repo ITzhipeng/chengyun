@@ -7,7 +7,6 @@ import com.chengyun.chengyun.vo.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.SQLException;
@@ -103,5 +102,4 @@ public class ApiController {
         jsonObject.put("list",apiService.getAtmosphereWarning());
         return ResultVo.getSuccess("数据获取成功",jsonObject);
     }
-
 }

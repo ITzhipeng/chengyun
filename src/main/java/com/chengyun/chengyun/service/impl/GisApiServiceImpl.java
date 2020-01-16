@@ -55,4 +55,17 @@ public class GisApiServiceImpl implements GisApiService {
     public List<Zdwxysj> getHazardousource(String lonMax, String lonMin, String latMax, String latMin) throws SQLException {
         return gisApiMapper.getHazardousource(lonMax,lonMin,latMax,latMin);
     }
+
+
+    @Override
+    public List<Zdwxysj> getHazardousource(String lonMax, String lonMin, String latMax, String latMin) throws SQLException {
+        return gisApiMapper.getHazardousource(lonMax,lonMin,latMax,latMin);
+    }
+
+
+
+
+
+
+
 }
